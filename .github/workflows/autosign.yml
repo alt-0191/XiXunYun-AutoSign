@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - master  # 仅对主分支进行触发，您可以根据需要更改分支名称
+  workflow_dispatch:
 
 jobs:
   run_daily_task:
@@ -18,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
