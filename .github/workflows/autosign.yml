@@ -1,0 +1,40 @@
+name: autosign
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 每天 8 点运行
+  push:
+    branches:
+      - master  # 仅对主分支进行触发，您可以根据需要更改分支名称
+
+jobs:
+  run_daily_task:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run main.py
+        env:
+          SCHOOL_ID: ${{ secrets.SCHOOL_ID }}
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          LONGITUDE: ${{ secrets.LONGITUDE }}
+          LATITUDE: ${{ secrets.LATITUDE }}
+          ADDRESS_NAME: ${{ secrets.ADDRESS_NAME }}
+          ADDRESS: ${{ secrets.ADDRESS }}
+          PROVINCE: ${{ secrets.PROVINCE }}
+          CITY: ${{ secrets.CITY }}
+          PUSHPLUS_SET: ${{ secrets.pushPlus_set }}
+          PUSHPLUS_TOKEN: ${{ secrets.pushPlus_set }}
+        run: python main.py
