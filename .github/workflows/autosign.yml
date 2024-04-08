@@ -36,6 +36,6 @@ jobs:
           ADDRESS: ${{ secrets.ADDRESS }}
           PROVINCE: ${{ secrets.PROVINCE }}
           CITY: ${{ secrets.CITY }}
-          PUSHPLUS_SET: ${{ secrets.pushPlus_set }}
-          PUSHPLUS_TOKEN: ${{ secrets.pushPlus_set }}
+          PUSHPLUS_SET: ${{ secrets.PUSHPLUS_SET }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
         run: python main.py
