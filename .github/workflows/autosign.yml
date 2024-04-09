@@ -2,10 +2,10 @@ name: autosign
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # 每天 8 点运行
+    - cron: '0 0 * * *'  # 每天 8 点运行
   push:
     branches:
-      - master  # 仅对主分支进行触发，您可以根据需要更改分支名称
+      - main  # 仅对主分支进行触发，您可以根据需要更改分支名称
   workflow_dispatch:
 
 jobs:
